@@ -1,14 +1,14 @@
-public class Toy {
+class Toy {
     private String id;
     private String name;
+    private int quantity;
     private int frequency;
-    private ToyStore toyStore;
 
-    public Toy(String id, String name, int frequency, ToyStore toyStore) {
+    public Toy(String id, String name, int quantity, int frequency) {
         this.id = id;
         this.name = name;
+        this.quantity = quantity;
         this.frequency = frequency;
-        this.toyStore = toyStore;
     }
 
     public String getId() {
@@ -19,13 +19,21 @@ public class Toy {
         return name;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public int getFrequency() {
         return frequency;
     }
 
-    public double getProbability() {
-        // Вычисление вероятности выбора данной игрушки на основе частоты выпадения и общей частоты
-        return (double) frequency / toyStore.getTotalFrequency();
+    public void setFrequency(int frequency) {
+        this.frequency = frequency;
+    }
+
+    public void decrementQuantity() {
+        if (quantity > 0) {
+            quantity--;
+        }
     }
 }
-
